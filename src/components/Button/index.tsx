@@ -7,7 +7,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = ({ children, className = "", ...props }: Props) => {
   return (
     <button
-      className={"border border-gray-800 rounded-lg p-2 text-xl " + className}
+      className={"border border-gray-800 rounded-lg py-2 px-6 text-xl opacity-90 " + className}
       {...props}
     >
       {children}

@@ -3,10 +3,10 @@ import { Button } from "../Button";
 import { TextInput } from "../TextInput";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { FormData } from "@/types/data";
+import { UserType } from "@/types/user";
 
 const schema = z.object({
-  name: z.string().nonempty("Name is required"),
+  name: z.string().regex(/^[A-Za-z0-9\s]*$/, { message: 'Invalid Name' }).nonempty("Name is required"),
   linkedinUrl: z
     .string()
     .url("Invalid URL")
@@ -15,15 +15,16 @@ const schema = z.object({
 });
 
 interface Props {
-  onSubmit: (data: FormData) => void;
+  onSubmit: (data: UserType) => void;
+  isLoading: boolean;
 }
 
-export const Form = ({ onSubmit }: Props) => {
+export const Form = ({ onSubmit, isLoading }: Props) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>({ resolver: zodResolver(schema) });
+  } = useForm<UserType>({ resolver: zodResolver(schema) });
 
   return (
     <form className="space-y-8 mt-8" onSubmit={handleSubmit(onSubmit)}>
@@ -56,8 +57,8 @@ export const Form = ({ onSubmit }: Props) => {
         )}
       </div>
       
-      <Button className="w-96" type="submit">
-        Generate Image
+      <Button className="w-96" type="submit" disabled={isLoading}>
+        {isLoading?'Loading...':'Generate Image'}
       </Button>
     </form>
   );
