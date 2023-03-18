@@ -2,13 +2,10 @@ import { Button } from "@/components/Button";
 import { getUser } from "@/services/firebase";
 import { UserType } from "@/types/user";
 import { GetServerSideProps, InferGetServerSidePropsType } from "next";
-import { useRouter } from "next/router";
 
 export default function UserPage({
   user,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-  const router = useRouter();
-
   const { name, githubUrl, linkedinUrl } = user;
 
   return (
