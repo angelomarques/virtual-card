@@ -4,6 +4,8 @@
 
 An app that generates an image with a qr code for your personal page.
 
+[https://virtual-card-seven.vercel.app/](https://virtual-card-seven.vercel.app/)
+
 ## Installation
 
 1. Clone this repository to your local machine.
