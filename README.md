@@ -11,9 +11,7 @@ An app that generates an image with a qr code for your personal page.
 1. Clone this repository to your local machine.
 2. Run `yarn` to install the dependencies.
 3. Run `yarn dev` to start the development server.
-4. Go to [Firebase](https://firebase.google.com/) and create a firebase application with a firestore database.
-5. Create a `.env.local` file and add the firebase config properties as environment variables (see `.env.example` for an example).
-6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
+4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app.
 
 ## Usage
 
